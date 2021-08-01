@@ -1,7 +1,5 @@
 #include "ClapTrap.hpp"
 
-// stringを共有するインスタンスを片方破棄したときの挙動確認
-
 ClapTrap::ClapTrap() {
   m_name = std::string("");
   m_hp = 10;
@@ -43,6 +41,7 @@ void ClapTrap::attack(std::string const &target) {
   std::cout << "ClapTrap " << m_name << " attacks " << target << ", causing "
             << m_attack_damage << " points of damage!" << std::endl;
 }
+
 void ClapTrap::takeDamage(unsigned int amount) {
   if (m_hp <= amount)
     m_hp = 0;
@@ -52,6 +51,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
             << " points of damage!" << std::endl;
   std::cout << m_name << "'s hitpoint is " << m_hp << " now!" << std::endl;
 }
+
 void ClapTrap::beRepaired(unsigned int amount) {
   m_hp += amount;
   std::cout << "ClapTrap " << m_name << " be repaired!" << std::endl;
